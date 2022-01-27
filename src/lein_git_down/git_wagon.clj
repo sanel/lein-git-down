@@ -294,7 +294,7 @@
   (let [file-re (-> (.getAbsolutePath destination)
                     (string/split (re-pattern (str "\\." checksum)))
                     first
-                    (string/split #"/")
+                    (string/split (re-pattern (str "\\"  File/separatorChar)))
                     last
                     (str "\\.(?!" checksum ")[^\\.]+$")
                     re-pattern)]
